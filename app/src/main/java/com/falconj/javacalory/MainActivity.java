@@ -5,7 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,5 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new ItemAdapter(mList);
         recyclerView.setAdapter(adapter);
+
     }
+
+
 }

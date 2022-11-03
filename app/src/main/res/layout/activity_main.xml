@@ -9,14 +9,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="291dp"
+        android:layout_height="0dp"
         android:background="#00C713"
-        app:layout_constraintBottom_toTopOf="@+id/rv_meal"
+        app:layout_constraintHeight_percent="0.34"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_carb"
@@ -31,7 +29,7 @@
             android:id="@+id/iv_protein"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/circle"
             app:layout_constraintEnd_toStartOf="@+id/iv_fat"
             app:layout_constraintStart_toEndOf="@+id/iv_carb"
@@ -41,11 +39,10 @@
             android:id="@+id/iv_fat"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="28dp"
             android:src="@drawable/circle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_protein"
-            app:layout_constraintTop_toBottomOf="@+id/roundedCornerLayout2" />
+            app:layout_constraintTop_toTopOf="@+id/iv_protein" />
 
         <TextView
             android:id="@+id/tv_calorie_goal"
@@ -55,9 +52,10 @@
             android:layout_marginBottom="16dp"
             android:text="2100"
             android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintBottom_toTopOf="@+id/roundedCornerLayout2"
-            app:layout_constraintEnd_toStartOf="@+id/calorie_goal_unit" />
+            app:layout_constraintEnd_toStartOf="@+id/calorie_goal_unit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_your_goal"/>
 
         <TextView
             android:id="@+id/calorie_goal_unit"
@@ -74,13 +72,12 @@
             android:id="@+id/tv_consumed_calorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:text="796"
             android:textColor="@color/white"
             android:gravity="bottom"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintStart_toStartOf="@+id/iv_carb"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tv_calorie_goal" />
 
         <TextView
             android:id="@+id/consumedCalorieUnit"
@@ -95,15 +92,16 @@
             app:layout_constraintStart_toEndOf="@+id/tv_consumed_calorie" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tv_your_goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
+            android:layout_marginTop="12dp"
             android:text="Your goal:"
             android:textColor="@color/white"
+
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_calorie_goal"
-            app:layout_constraintStart_toStartOf="@+id/tv_calorie_goal" />
+            app:layout_constraintStart_toStartOf="@+id/tv_calorie_goal"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_circle_carb_number"
@@ -209,7 +207,7 @@
             android:id="@+id/roundedCornerLayout2"
             android:layout_width="0dp"
             android:layout_height="28dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="@+id/iv_fat"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/iv_carb"
@@ -222,31 +220,82 @@
 
             <View
                 android:id="@+id/bar_fat"
-                android:layout_width="30dp"
+                android:layout_width="190dp"
                 android:layout_height="match_parent"
                 android:background="#F44336" />
 
             <View
                 android:id="@+id/bar_protein"
-                android:layout_width="0dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:background="#FFAA00" />
 
             <View
                 android:id="@+id/bar_carb"
-                android:layout_width="0dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:background="#EEFF00" />
 
         </com.falconj.javacalory.RoundedCornerLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/day_selector"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_meal"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <ImageButton
+            android:id="@+id/iv_button_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_marginStart="48dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day"
+            app:layout_constraintEnd_toStartOf="@+id/tv_day"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_day" />
+
+
+        <ImageButton
+            android:id="@+id/iv_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_arrow_forward"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_day"
+            app:layout_constraintTop_toTopOf="@+id/tv_day" />
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/day_selector"
+            app:layout_constraintEnd_toStartOf="@+id/iv_button_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_button_left"
+            app:layout_constraintTop_toTopOf="@+id/day_selector" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_meal"
         android:layout_width="match_parent"
-        android:layout_height="439dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
